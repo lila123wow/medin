@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pengajuan Dispensasi Kembali ke Sekolah</title>
+    <style>
+        .container {
+            justify-content: center;
+            align-items: center;
+            max-width: 300px;
+            padding: 20px;
+            margin:0% auto;
+            background-color: #ffff00;
+            border: 1px solid #000000
+        }
+        .left-aligned {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Izin Masuk</h1>
+    <div class="container">
+        <div class="left-aligned">
+        
+    <form action="https://script.google.com/macros/s/AKfycbwjmFgc0u8MJKkGzyj_dzRfPc_aEu9We5WNmwL51rL2DmUGcPLcczOJGxZIaBoqN_ym/exec" method="POST"  name="izin-masuk" >
+        
+        <p>Nama Lengkap: <input type="text" name="nama" /></p>
+        <p>Kelas: <input type="text" name="kelas" /></p>
+        <p>Jam Kembali: <input type="time" name="jamkembali" /></p>
+        <p>Konfirmasi Peserta Didik Telah Kembali ke Sekolah:
+            <input type="radio" name="konfirmasipesertadidiktelahkembalikesekolah" value="sudah"> Sudah
+            <input type="radio" name="konfirmasipesertadidiktelahkembalikesekolah" value="belum"> Belum</p>
+            <button type="submit">Send</button>
+    </form>
+    </div>
+    </div>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwjmFgc0u8MJKkGzyj_dzRfPc_aEu9We5WNmwL51rL2DmUGcPLcczOJGxZIaBoqN_ym/exec'
+        const form = document.forms ['izin-masuk']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>

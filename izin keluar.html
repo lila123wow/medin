@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pengajuan Dispensasi Peserta Didik</title>
+    <style>
+        .container {
+            justify-content: center;
+            align-items: center;
+            max-width: 300px;
+            padding: 20px;
+            margin:0% auto;
+            background-color: #ffff00;
+            border: 1px solid #000000
+        }
+        .left-aligned {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Izin Keluar</h1>
+    <div class="container">
+        <div class="left-aligned">
+        <form action="https://script.google.com/macros/s/AKfycbyjA-KvRRukioXlz2ux6FftlfsEnmuJzGpylc7JNAq2gVC8IKKzliFg8rQBoMtHtI3i/exec" method="POST" name="izin-keluar">
+
+        <p>Nama Lengkap: <input type="text" name="nama" /></p>
+        <p>Kelas: <input type="text" name="kelas" /></p>
+        <p>Alasan: <input type="text" name="alasan" /></p>
+        <p>Tanggal: <input type="date" name="tanggal" /></p>
+        <p>Keluar pada jam: <input type="time" name="keluarpadajam" /></p>
+        <p>Mata Pelajaran: <input type="text" name="matapelajaran" /></p>
+        <p>Bukti Perizinan dari Wali Kelas: <input type="file" name="izinwalas" /><br /></p>
+        <p>Bukti Perizinan dari Guru Mapel: <input type="file" name="izingurumapel" /><br /></p>
+        <p>Apakah Sudah Mendapat Perizinan dari Guru Piket:
+            <input type="radio" name="apakahsudahmendapatperizinandarigurupiket" value="ya"> Ya
+            <input type="radio" name="apakahsudahmendapatperizinandarigurupiket" value="tidak"> Tidak</p>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyjA-KvRRukioXlz2ux6FftlfsEnmuJzGpylc7JNAq2gVC8IKKzliFg8rQBoMtHtI3i/exec'
+        const form = document.forms['izin-keluar']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
